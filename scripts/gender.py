@@ -8,11 +8,10 @@ train = pd.read_csv('../datasets/train.csv', dtype={"Age": np.float64}, )
 train = train[['Survived', 'Sex', 'Age']]
 train = train.dropna()
 
-print(train.head())
+print('Female stats:')
+print('died:', gender_survival(train, 'female', 0))
+print('lived:', gender_survival(train, 'female', 1), '\n')
 
-print('proportion of females that died:', gender_survival(train, 'female', 0))
-print('proportion of females that lived:', gender_survival(train, 'female', 1))
-
-print('proportion of males that died:', gender_survival(train, 'male', 0))
-print('proportion of males that lived:', gender_survival(train, 'male', 1))
-
+print('Male stats:')
+print('died:', gender_survival(train, 'male', 0))
+print('lived:', gender_survival(train, 'male', 1), '\n')
